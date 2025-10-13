@@ -1,0 +1,17 @@
+{
+    "last_check": "2025-10-13 09:19:01.566372",
+    "backup_date": "October-13-2025",
+    "update_ready": true,
+    "ignore": false,
+    "just_restored": false,
+    "just_updated": false,
+    "version_text": {
+        "link": "https://api.github.com/repos/Maxxxel/SF2-ImpEx-for-Blender/zipball/v3.3.1",
+        "version": [
+            3,
+            3,
+            1,
+            2
+        ]
+    }
+}

@@ -36,7 +36,6 @@ import zipfile
 import shutil
 import threading
 import fnmatch
-import re
 from datetime import datetime, timedelta
 
 # Blender imports, used in limited cases.
@@ -1178,16 +1177,33 @@ class SingletonUpdater:
         f.close()
 
     def version_tuple_from_text(self, text):
-        if not text:
+        """Convert text into a tuple of numbers (int).
+
+        Should go through string and remove all non-integers, and for any
+        given break split into a different section.
+        """
+        if text is None:
             return ()
 
-        match = re.search(r'(\d+(?:\.\d+)*)', text)
-        if not match:
+        segments = list()
+        tmp = ""
+        for char in str(text):
+            if not char.isdigit():
+                if len(tmp) > 0:
+                    segments.append(int(tmp))
+                    tmp = ""
+            else:
+                tmp += char
+        if len(tmp) > 0:
+            segments.append(int(tmp))
+
+        if len(segments) == 0:
             self.print_verbose("No version strings found text: " + str(text))
-            return () if not self._include_branches else text
-
-        return tuple(map(int, match.group(1).split('.')))
-
+            if not self._include_branches:
+                return ()
+            else:
+                return text
+        return tuple(segments)
 
     def check_for_update_async(self, callback=None):
         """Called for running check in a background thread"""
