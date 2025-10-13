@@ -1,4 +1,4 @@
-# Battleforge Model Importer/Exporter for Blender
+# Spellforce 2 Model Importer/Exporter for Blender
 
 A Blender Add-on designed for easy importing and exporting of Spellforce game assets (`.drs`, `.bmg`). Streamline your workflow by quickly importing, editing, animating, and exporting models directly within Blender.
 
@@ -23,7 +23,7 @@ Follow these steps to install the add-on into Blender:
 
 1. Open Blender.
 2. Go to `File > Import`.
-3. Choose the **Battleforge (.drs/.bmg)** file type.
+3. Choose the **Spellforce 2 (.drs/.bmg)** file type.
 4. Select your desired model file to import.
 
 ## ⚠️ Compatibility & Support
